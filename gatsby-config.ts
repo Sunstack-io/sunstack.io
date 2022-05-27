@@ -38,6 +38,19 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-web-font-loader",
     },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/images/favicon.png",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-i18n",
+      options: {
+        langKeyDefault: "fr",
+        useLangKeyLayout: false,
+      },
+    },
   ],
 };
 
