@@ -18,7 +18,6 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
-    "gatsby-plugin-pnpm",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
