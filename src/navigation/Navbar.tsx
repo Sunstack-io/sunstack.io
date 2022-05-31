@@ -3,20 +3,23 @@ import styled from "styled-components";
 
 import LogoFullTransparent from "../images/logo_full_transparent.png";
 import { mediaQueryTablet, avoidBlurryImages } from "../styles";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 type Props = {};
 
 export const Navbar: React.FC<Props> = () => {
+  const { t } = useTranslation();
+
   return (
     <Main>
       <LogoImg src={LogoFullTransparent} />
       <MenuContainer>
         <ul>
           <li>
-            <a href="#">A propos</a>
+            <a href="#">{t("about")}</a>
           </li>
           <li className="button">
-            <a href="#">Commencer un projet</a>
+            <a href="#">{t("header-cta")}</a>
           </li>
         </ul>
       </MenuContainer>

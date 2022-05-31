@@ -10,14 +10,17 @@ import ReduxIcon from "../images/tools/redux-icon.png";
 
 import { Container } from "../components/Container";
 import { mediaQueryMobile, mediaQuerySmallTablet } from "../styles";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 type Props = {};
 
 export const ToolsSection: React.FC<Props> = ({}) => {
+  const { t } = useTranslation();
+
   return (
     <Main>
       <Container>
-        <Title>Grâce aux meilleurs outils de l'industrie.</Title>
+        <Title>{t("tools-title")}</Title>
         <IconGrid>
           <IconSet img={ReactIcon} title={"React"} subtitle={"Platform"} />
           <IconSet img={RNIcon} title={"React-Native"} subtitle={"Platform"} />

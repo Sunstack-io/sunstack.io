@@ -5,63 +5,38 @@ import PhoneImg from "../images/phone-2.png";
 
 import { Container } from "../components/Container";
 import { mediaQuerySmallTablet, mediaQueryTablet } from "../styles";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 type Props = {};
 
+const elements = [null, null, null];
+
 export const DemoSection: React.FC<Props> = ({}) => {
+  const { t } = useTranslation();
+
   return (
     <Main>
       <Container>
-        <Title>Donnez-nous les grandes lignes, on se charge du reste.</Title>
+        <Title>{t("demo-title")}</Title>
         <Rows>
           <Column>
-            <Block>
-              <BlockTitle>Spécification</BlockTitle>
-              <BlockText>
-                Nous élaborons les détails techniques avec un focus sur la
-                création d'un MVP.
-              </BlockText>
-            </Block>
-            <Block>
-              <BlockTitle>Design</BlockTitle>
-              <BlockText>
-                Nous dessinons les wireframes de l'app et réalisons un
-                prototype.
-              </BlockText>
-            </Block>
-            <Block>
-              <BlockTitle>Architecture</BlockTitle>
-              <BlockText>
-                Nous planifions à l'avance les interactions entre les services
-                pour permettre au projet de scale.
-              </BlockText>
-            </Block>
+            {elements.map((_, i) => (
+              <Block>
+                <BlockTitle>{t("demo-" + (i + 1) + "-title")}</BlockTitle>
+                <BlockText>{t("demo-" + (i + 1) + "-text")}</BlockText>
+              </Block>
+            ))}
           </Column>
           <Column>
             <PhoneImgContainer src={PhoneImg} />
           </Column>
           <Column isRight={true}>
-            <Block>
-              <BlockTitle>Développement</BlockTitle>
-              <BlockText>
-                Nous codons l'application en agile avec un premier livrable
-                interne le plus tôt possible.
-              </BlockText>
-            </Block>
-            <Block>
-              <BlockTitle>Livraison</BlockTitle>
-              <BlockText>
-                Nous créons une pipeline pour déployer votre application dans
-                les meilleurs délais.
-              </BlockText>
-            </Block>
-            <Block>
-              <BlockTitle>Maintenance</BlockTitle>
-              <BlockText>
-                Nous gardons un oeil sur les core health metrics et agissons en
-                cas d'urgence.
-              </BlockText>
-            </Block>
+            {elements.map((_, i) => (
+              <Block>
+                <BlockTitle>{t("demo-" + (i + 4) + "-title")}</BlockTitle>
+                <BlockText>{t("demo-" + (i + 4) + "-text")}</BlockText>
+              </Block>
+            ))}
           </Column>
         </Rows>
       </Container>

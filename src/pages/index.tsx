@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import Helmet from "react-helmet";
+import { graphql } from "gatsby";
 
 import { FunText, MainText, Title } from "../components/HomeComponents";
 import { Layout } from "../navigation/Layout";
@@ -40,3 +41,17 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

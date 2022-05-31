@@ -3,46 +3,46 @@ import styled from "styled-components";
 import { Button, LinkButton } from "../components/Button";
 import { Container } from "../components/Container";
 import { OneLineTextInput, MultiLineTextInput } from "../components/Input";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 type Props = {};
 
 export const ContactSection: React.FC<Props> = ({}) => {
+  const { t } = useTranslation();
+
   return (
     <Main>
       <Container>
         <CenteredContainer>
           <TitleContainer>
-            <Title>Travaillons ensemble.</Title>
-            <Subtitle>
-              Que vous vouliez lancer votre prochaine application mobile ou que
-              vous ayiez des besoins dans votre business, nous sommes toujours
-              prêts à discuter.
-            </Subtitle>
+            <Title>{t("contact-title")}</Title>
+            <Subtitle>{t("contact-text")}</Subtitle>
           </TitleContainer>
           <FormContainer>
             <div>
               <OneLineTextInput
-                label="Adresse e-mail"
+                label={t("emailAddress")}
                 placeholder="johndoe@gmail.com"
                 name="emailAddress"
               />
               <OneLineTextInput
-                label="Nom"
+                label={t("name")}
                 placeholder="John Doe"
                 name="name"
               />
               <MultiLineTextInput
-                label="Message"
+                label={t("message")}
                 placeholder="How can we help"
                 name="name"
               />
             </div>
             <FormFooter>
-              <FormAgreement>
-                En envoyant ce formulaire, vous acceptez notre{" "}
-                <a href="#">politique de confidentialité</a>.
-              </FormAgreement>
-              <LinkButton>Envoyer</LinkButton>
+              <FormAgreement
+                dangerouslySetInnerHTML={{
+                  __html: t("contact-privacyPolicy", { url: "#" }),
+                }}
+              />
+              <LinkButton>{t("send")}</LinkButton>
             </FormFooter>
           </FormContainer>
         </CenteredContainer>

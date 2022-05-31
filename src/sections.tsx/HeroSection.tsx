@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation, useI18next } from "gatsby-plugin-react-i18next";
 
 import ReactIcon from "../images/react-icon-big.png";
 
@@ -15,18 +16,16 @@ import {
 type Props = {};
 
 export const HeroSection: React.FC<Props> = ({}) => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <Main>
         <LeftSection>
-          <SmallTitle>Vous l'imaginez,</SmallTitle>
-          <BigTitle>Nous le rendons réel.</BigTitle>
-          <Text>
-            Nous sommes une équipe d'experts <b>React-Native</b> qui développons
-            des applications mobiles full-stack depuis 2016, prêt à accueillir
-            votre prochain projet.
-          </Text>
-          <CTAButton>Commencer un projet</CTAButton>
+          <SmallTitle>{t("hero-smallTitle")}</SmallTitle>
+          <BigTitle>{t("hero-bigTitle")}</BigTitle>
+          <Text dangerouslySetInnerHTML={{ __html: t("hero-text") }} />
+          <CTAButton>{t("hero-cta")}</CTAButton>
         </LeftSection>
         <RightSection>
           <ReactIconImg src={ReactIcon} />

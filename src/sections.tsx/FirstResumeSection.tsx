@@ -4,31 +4,26 @@ import styled from "styled-components";
 import PhoneCase from "../images/phone-1.png";
 import { Container } from "../components/Container";
 import { mediaQueryTablet, mediaQuerySmallTablet } from "../styles";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 type Props = {};
 
 export const FirstResumeSection: React.FC<Props> = ({}) => {
+  const { t } = useTranslation();
+
   return (
     <Main>
       <Container>
         <Rows>
           <LeftSection>
-            <Title>
-              Nous créons des projets <span>géniaux</span> sur mesure.
-            </Title>
-            <Text>
-              Nous développons des applications mobiles <b>React-Native</b> sur
-              mesure et de qualité industrielle.
-              <br />
-              <br /> Notre équipe d'experts a plus de 16 ans d'expérience dans
-              le monde du développement logiciel, ainsi que 7 ans dédiés à
-              React-Native et aux applications ReactJS.
-              <br />
-              <br />
-              Nos ingénieurs contribuent régulièrement à l'Open-Source et
-              maintiennent quelques-uns des packages React-Native les plus
-              utilisés, cumulant plus d'1M de téléchargements mensuel.
-            </Text>
+            <Title dangerouslySetInnerHTML={{ __html: t("fres-title") }} />
+            <Text
+              dangerouslySetInnerHTML={{
+                __html: t("fres-text", {
+                  joinArrays: "<br/><br/>",
+                }),
+              }}
+            />
           </LeftSection>
           <RightSection>
             <PhoneImg src={PhoneCase} />

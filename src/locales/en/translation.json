@@ -1,0 +1,56 @@
+{
+  "hero-smallTitle": "You imagine it,",
+  "hero-bigTitle": "We make it real.",
+  "hero-text": "We are a team of React-Native experts crafting full-stack mobile apps since 2016, all ready to create your next project.",
+  "hero-cta": "Start a project",
+
+  "ref-title": "We love building great apps",
+
+  "fres-title": "Building <span>great</span> projects from the ground up.",
+  "fres-text": [
+    "We develop <b>React-Native</b> mobile apps from the ground up, aligned with industry standards. Our team of experts has more than 16 years of experience in the software industry, with the last 7 dedicated to React-Native and React apps.",
+    "Our engineers regularly contribute to open-source and maintain some of the most used React-Native packages, cumulating more than <b>1 million of monthly downloads.</b>"
+  ],
+
+  "tools-title": "Using the finest tools in the industry.",
+  "demo-title": "Sketch a rough draft and let us handle the rest.",
+
+  "demo-1-title": "Specification",
+  "demo-1-text": "We elaborate on the technical details with a focus on an initial MVP.",
+  "demo-2-title": "Design",
+  "demo-2-text": "We draw wireframes to enforce the best UX practices, then setup a prototype.",
+  "demo-3-title": "Architecture",
+  "demo-3-text": "We plan ahead all the interactions between services to ensure scalability.",
+  "demo-4-title": "Development",
+  "demo-4-text": "We create the apps with agility and ensure a testable first draft as early as possible.",
+  "demo-5-title": "Delivery",
+  "demo-5-text": "We setup a pipeline to smoothly deploy your app with minimum delay.",
+  "demo-6-title": "Maintenance",
+  "demo-6-text": "We keep a watch on core health metrics and act upon urgency.",
+
+  "solution-title": "We have solutions.",
+
+  "solution-1-title": "Software Development",
+  "solution-1-text": "Amaze your customers with a modern app tailored for your needs. Tell us the story and we'll write the book.",
+  "solution-2-title": "MVP Development",
+  "solution-2-text": "Just try some ideas and validate some hypothesis about it. The best way to lunch your next startup.",
+  "solution-3-title": "Consulting",
+  "solution-3-text": "We dive deeply into your business and provide technical solutions to your problem.",
+  "solution-4-title": "Mentoring",
+  "solution-4-text": "Invest in your team and grow their skills so they can move faster and break even more things.",
+  "solution-5-title": "Short-Term Support",
+  "solution-5-text": "Reinforce your team with our developers to cope with your timely needs.",
+
+  "contact-title": "Let's work together.",
+  "contact-text": "Wether you want to kickstart your next mobile app or have needs in your business, we're always ready for a chat.",
+  "contact-privacyPolicy": "By sending this form, you accept our <a href=\"{{ url }}\">privacy policy</a>",
+
+  "emailAddress": "E-mail address",
+  "name": "Nom",
+  "message": "Message",
+  "more": "More",
+  "send": "Send",
+
+  "about": "About",
+  "header-cta": "Start a project"
+}

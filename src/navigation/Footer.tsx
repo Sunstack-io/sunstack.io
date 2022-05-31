@@ -7,17 +7,20 @@ import {
   avoidBlurryImages,
   mediaQueryMobile,
 } from "../styles";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 type Props = {};
 
 export const Footer: React.FC<Props> = () => {
+  const { t } = useTranslation();
+
   return (
     <Main>
       <LogoImg src={LogoFullTransparent} />
       <MenuContainer>
         <ul>
           <li>
-            <a href="#">A propos</a>
+            <a href="#">{t("about")}</a>
           </li>
         </ul>
       </MenuContainer>

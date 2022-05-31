@@ -8,14 +8,17 @@ import BelibIcon from "../images/belib-icon.png";
 
 import { Container } from "../components/Container";
 import { mediaQueryMobile, mediaQuerySmallTablet } from "../styles";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 type Props = {};
 
 export const ReferenceSection: React.FC<Props> = ({}) => {
+  const { t } = useTranslation();
+
   return (
     <Main>
       <Container>
-        <Title>Notre passion : créer de superbes apps</Title>
+        <Title>{t("ref-title")}</Title>
       </Container>
 
       <ImgContainer>

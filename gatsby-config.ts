@@ -45,10 +45,35 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: "gatsby-plugin-i18n",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        langKeyDefault: "fr",
-        useLangKeyLayout: false,
+        path: `./src/locales`,
+        name: `locale`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locale`,
+        languages: [`en`, `fr`],
+        defaultLanguage: `en`,
+        siteUrl: `https://sunstack.io/`,
+        redirect: true,
+        // you can pass any i18next options
+        // i18nextOptions: {
+        //   interpolation: {
+        //     escapeValue: false // not needed for react as it escapes by default
+        //   },
+        //   keySeparator: false,
+        //   nsSeparator: false
+        // },
+        // pages: [
+        //   {
+        //     matchPath: "/:lang?/blog/:uid",
+        //     getLanguageFromPath: true,
+        //     excludeLanguages: ["es"],
+        //   },
+        // ],
       },
     },
   ],

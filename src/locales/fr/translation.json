@@ -1,0 +1,57 @@
+{
+  "hero-smallTitle": "Vous l'imaginez,",
+  "hero-bigTitle": "Nous le rendons réel.",
+  "hero-text": "Nous sommes une équipe d'experts <b>React-Native</b> qui développons des applications mobiles full-stack depuis 2016, prêt à accueillir votre prochain projet.",
+  "hero-cta": "Commencer un projet",
+
+  "ref-title": "Notre passion : créer de superbes apps",
+
+  "fres-title": "Nous créons des projets <span>géniaux</span> sur mesure.",
+  "fres-text": [
+    "Nous développons des applications mobiles <b>React-Native</b> sur mesure et de qualité industrielle.",
+    "Notre équipe d'experts a plus de 16 ans d'expérience dans le monde du développement logiciel, ainsi que 7 ans dédiés à React-Native et aux applications ReactJS.",
+    "Nos ingénieurs contribuent régulièrement à l'Open-Source et maintiennent quelques-uns des packages React-Native les plus utilisés, cumulant plus d'1M de téléchargements mensuel."
+  ],
+
+  "tools-title": "Grâce aux meilleurs outils de l'industrie.",
+  "demo-title": "Donnez-nous les grandes lignes, on se charge du reste.",
+
+  "demo-1-title": "Spécification",
+  "demo-1-text": "Nous élaborons les détails techniques avec un focus sur la création d'un MVP.",
+  "demo-2-title": "Design",
+  "demo-2-text": "Nous dessinons les wireframes de l'app et réalisons un prototype.",
+  "demo-3-title": "Architecture",
+  "demo-3-text": "Nous planifions à l'avance les interactions entre les services pour permettre au projet de scale.",
+  "demo-4-title": "Développement",
+  "demo-4-text": "Nous codons l'application en agile avec un premier livrable interne le plus tôt possible.",
+  "demo-5-title": "Livraison",
+  "demo-5-text": "Nous créons une pipeline pour déployer votre application dans les meilleurs délais.",
+  "demo-6-title": "Maintenance",
+  "demo-6-text": "Nous gardons un oeil sur les core health metrics et agissons encas d'urgence.",
+
+  "solution-title": "Nous avons des solutions.",
+
+  "solution-1-title": "Ingénierie Logiciel",
+  "solution-1-text": "Epatez vos clients avec une application ajustée à vos besoins. Racontez-nous votre histoire et nous écrirons le livre.",
+  "solution-2-title": "Développement MVP",
+  "solution-2-text": "Donnez vie à vos idées et validez vos hypothèses. C'est le meilleur moyen de lancer votre prochaine startup.",
+  "solution-3-title": "Consulting",
+  "solution-3-text": "Nous regardons votre infrastructure logicielle en profondeur et suggérons des solutions techniques à vos problèmes.",
+  "solution-4-title": "Mentorat",
+  "solution-4-text": "Investissez dans votre équipe et faites les monter en compétences afin qu'ils avancent encore plus vite et cassent encore plus de choses.",
+  "solution-5-title": "Support à court-terme",
+  "solution-5-text": "Renforcez votre équipe avec nos développeurs pour combler vos besoins du moment.",
+
+  "contact-title": "Travaillons ensemble.",
+  "contact-text": "Que vous vouliez lancer votre prochaine application mobile ou que vous ayiez des besoins dans votre business, nous sommes toujours prêts à discuter",
+  "contact-privacyPolicy": "En envoyant ce formulaire, vous acceptez notre <a href=\"{{ url }}\">politique de confidentialité</a>",
+
+  "emailAddress": "Adresse e-mail",
+  "name": "Nom",
+  "message": "Message",
+  "more": "En savoir plus",
+  "send": "Envoyer",
+
+  "about": "A propos",
+  "header-cta": "Commencer un projet"
+}

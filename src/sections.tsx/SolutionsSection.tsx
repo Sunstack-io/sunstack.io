@@ -2,36 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import { Container } from "../components/Container";
 import { mediaQuerySmallTablet, mediaQueryMobile } from "../styles";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 type Props = {};
 
+const elements = [null, null, null, null, null];
+
 export const SolutionsSection: React.FC<Props> = ({}) => {
+  const { t } = useTranslation();
+
   return (
     <Main>
       <Container>
-        <Title>Nous avons des solutions.</Title>
+        <Title>{t("solution-title")}</Title>
         <SolutionGrid>
-          <SolutionBlock title={"Ingénierie Logiciel"}>
-            Epatez vos clients avec une application ajustée à vos besoins.
-            Racontez-nous votre histoire et nous écrirons le livre.
-          </SolutionBlock>
-          <SolutionBlock title={"Développement MVP"}>
-            Donnez vie à vos idées et validez vos hypothèses. C'est le meilleur
-            moyen de lancer votre prochaine startup.
-          </SolutionBlock>
-          <SolutionBlock title={"Consulting"}>
-            Nous regardons votre infrastructure logicielle en profondeur et
-            suggérons des solutions techniques à vos problèmes.
-          </SolutionBlock>
-          <SolutionBlock title={"Mentorat"}>
-            Investissez dans votre équipe et faites les monter en compétences
-            afin qu'ils avancent encore plus vite et cassent encore plus de
-            choses.
-          </SolutionBlock>
-          <SolutionBlock title={"Support à court-terme"}>
-            Renforcez votre équipe avec nos développeurs pour combler vos
-            besoins du moment.
-          </SolutionBlock>
+          {elements.map((_, i) => (
+            <SolutionBlock title={t("solution-" + (i + 1) + "-title")}>
+              {t("solution-" + (i + 1) + "-text")}
+            </SolutionBlock>
+          ))}
         </SolutionGrid>
       </Container>
     </Main>
@@ -41,13 +30,17 @@ export const SolutionsSection: React.FC<Props> = ({}) => {
 const SolutionBlock: React.FC<{ title: string; children: any }> = ({
   title,
   children,
-}) => (
-  <SolutionUI>
-    <SolutionTitle>{title}</SolutionTitle>
-    <SolutionText>{children}</SolutionText>
-    <SolutionURL href="#">More</SolutionURL>
-  </SolutionUI>
-);
+}) => {
+  const { t } = useTranslation();
+
+  return (
+    <SolutionUI>
+      <SolutionTitle>{title}</SolutionTitle>
+      <SolutionText>{children}</SolutionText>
+      <SolutionURL href="#">{t("more")}</SolutionURL>
+    </SolutionUI>
+  );
+};
 
 const Main = styled.div`
   margin-block: var(--section-margin);
