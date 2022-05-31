@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { breakPoints, mediaQuery, mediaQuerySmallTablet } from "../styles";
 
 type Props = {
   children: any;
@@ -49,8 +50,16 @@ const Main = styled.main`
   padding: 0;
 
   --main-color: #cf2d00;
+  --huge-title-size: 6rem;
+  --subhuge-title-size: 5rem;
   --title-size: 4.6rem;
+  --small-title-size: 2.8rem;
+  --big-text-size: 2.6rem;
   --text-size: 2.4rem;
+  --regular-size: 2rem;
+  --small-size: 1.8rem;
+  --text-line-height: 1.3;
+  --section-margin: 80px;
 
   b {
     font-weight: 600;
@@ -58,5 +67,19 @@ const Main = styled.main`
   }
   a {
     color: white;
+  }
+
+  ${mediaQuery(breakPoints.tablet)} {
+    --huge-title-size: 4.2rem;
+    --subhuge-title-size: 3.8rem;
+    --title-size: 4rem;
+    --small-title-size: 2.4rem;
+    --text-size: 2rem;
+    --regular-size: 1.8rem;
+  }
+  ${mediaQuerySmallTablet()} {
+    --huge-title-size: 5rem;
+    --subhuge-title-size: 4rem;
+    --section-margin: 60px;
   }
 `;

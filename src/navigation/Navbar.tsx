@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import LogoFullTransparent from "../images/logo_full_transparent.png";
+import { mediaQueryTablet, avoidBlurryImages } from "../styles";
 
 type Props = {};
 
@@ -29,20 +30,25 @@ const Main = styled.nav`
   justify-content: space-between;
   align-items: center;
 
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-block: 30px;
 
   max-width: 1600px;
   padding-inline: 30px;
   margin: auto;
 `;
 const LogoImg = styled.img`
-  height: 35px;
+  ${avoidBlurryImages()}
+
+  height: 32px;
+  ${mediaQueryTablet()} {
+    height: 26px;
+  }
 `;
 const MenuContainer = styled.div`
   ul {
     list-style-type: none;
     display: flex;
+    margin: 0;
   }
   li {
     display: block;
@@ -55,6 +61,7 @@ const MenuContainer = styled.div`
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 400;
+    font-size: 1.6rem;
 
     display: flex;
     height: 40px;
@@ -71,5 +78,9 @@ const MenuContainer = styled.div`
       border-color: var(--main-color);
       transform: translateY(-2px);
     }
+  }
+
+  ${mediaQueryTablet()} {
+    display: none;
   }
 `;

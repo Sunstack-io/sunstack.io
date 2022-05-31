@@ -9,6 +9,7 @@ import TSIcon from "../images/tools/typescript-icon.png";
 import ReduxIcon from "../images/tools/redux-icon.png";
 
 import { Container } from "../components/Container";
+import { mediaQueryMobile, mediaQuerySmallTablet } from "../styles";
 
 type Props = {};
 
@@ -51,17 +52,24 @@ export const IconSet: React.FC<{
 );
 
 const Main = styled.div`
-  margin-block: 80px;
+  margin-block: var(--section-margin);
 `;
 const Title = styled.h2`
   font-size: var(--title-size);
-  margin-bottom: 80px;
+  margin-bottom: var(--section-margin);
 `;
 
 const IconGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 40px;
+
+  ${mediaQuerySmallTablet()} {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  ${mediaQueryMobile()} {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 const IconContainer = styled.div``;
 const IconImg = styled.img`
@@ -72,6 +80,10 @@ const IconTitle = styled.h4`
   text-transform: uppercase;
   margin: 0;
   font-size: 2.6rem;
+
+  ${mediaQuerySmallTablet()} {
+    font-size: 2.2rem;
+  }
 `;
 const IconSubtitle = styled.h6`
   text-transform: uppercase;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import PhoneCase from "../images/phone-1.png";
 import { Container } from "../components/Container";
+import { mediaQueryTablet, mediaQuerySmallTablet } from "../styles";
 
 type Props = {};
 
@@ -39,17 +40,32 @@ export const FirstResumeSection: React.FC<Props> = ({}) => {
 };
 
 const Main = styled.div`
-  padding-block: 80px;
+  margin-block: var(--section-margin);
 `;
 const Rows = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  ${mediaQuerySmallTablet()} {
+    flex-direction: column;
+    justify-content: initial;
+  }
 `;
 const LeftSection = styled.div`
   max-width: 58%;
+  ${mediaQueryTablet()} {
+    max-width: 66%;
+  }
+  ${mediaQuerySmallTablet()} {
+    max-width: initial;
+  }
 `;
-const RightSection = styled.div``;
+const RightSection = styled.div`
+  ${mediaQuerySmallTablet()} {
+    margin-top: var(--section-margin);
+  }
+`;
 
 const Title = styled.h2`
   font-size: var(--title-size);
@@ -60,8 +76,11 @@ const Title = styled.h2`
 `;
 const Text = styled.p`
   font-size: var(--text-size);
-  line-height: 1.5;
+  line-height: var(--text-line-height);
 `;
 const PhoneImg = styled.img`
   height: 560px;
+  ${mediaQueryTablet()} {
+    height: 430px;
+  }
 `;

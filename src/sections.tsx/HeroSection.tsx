@@ -5,6 +5,12 @@ import ReactIcon from "../images/react-icon-big.png";
 
 import { Container } from "../components/Container";
 import { Button } from "../components/Button";
+import {
+  breakPoints,
+  mediaQuery,
+  mediaQueryTablet,
+  mediaQuerySmallTablet,
+} from "../styles";
 
 type Props = {};
 
@@ -13,10 +19,8 @@ export const HeroSection: React.FC<Props> = ({}) => {
     <Container>
       <Main>
         <LeftSection>
-          <Title>
-            Vous l'imaginez,
-            <strong>Nous le rendons réel.</strong>
-          </Title>
+          <SmallTitle>Vous l'imaginez,</SmallTitle>
+          <BigTitle>Nous le rendons réel.</BigTitle>
           <Text>
             Nous sommes une équipe d'experts <b>React-Native</b> qui développons
             des applications mobiles full-stack depuis 2016, prêt à accueillir
@@ -33,25 +37,46 @@ export const HeroSection: React.FC<Props> = ({}) => {
 };
 
 const Main = styled.div`
-  height: 60vh;
+  height: 70vh;
+  min-height: 500px;
+
   display: flex;
   flex-direction: row;
 
   align-items: center;
   justify-content: space-between;
+
+  ${mediaQuerySmallTablet()} {
+    flex-direction: column;
+    align-items: initial;
+    justify-content: initial;
+
+    min-height: initial;
+    height: initial;
+
+    padding-block: 40px;
+  }
 `;
 
 const LeftSection = styled.div`
   max-width: 60%;
-`;
-const Title = styled.h1`
-  font-size: 5rem;
-  font-weight: 400;
-  strong {
-    font-size: 6rem;
-    display: block;
-    margin-top: -8px;
+  ${mediaQuerySmallTablet()} {
+    max-width: initial;
   }
+`;
+const SmallTitle = styled.h1`
+  font-size: var(--subhuge-title-size);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 8px;
+`;
+
+const BigTitle = styled.h1`
+  font-size: var(--huge-title-size);
+  line-height: 0.9;
+
+  display: block;
+  margin-top: -8px;
 
   margin-bottom: 20px;
 `;
@@ -66,7 +91,14 @@ const Text = styled.p`
 const CTAButton = styled(Button)`
   margin-top: 0;
 `;
-const RightSection = styled.div``;
+const RightSection = styled.div`
+  ${mediaQuerySmallTablet()} {
+    display: none;
+  }
+`;
 const ReactIconImg = styled.img`
   height: 290px;
+  ${mediaQueryTablet()} {
+    height: 200px;
+  }
 `;

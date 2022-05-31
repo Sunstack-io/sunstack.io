@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Container } from "../components/Container";
+import { mediaQuerySmallTablet, mediaQueryMobile } from "../styles";
 
 type Props = {};
 
@@ -49,41 +50,49 @@ const SolutionBlock: React.FC<{ title: string; children: any }> = ({
 );
 
 const Main = styled.div`
-  margin-block: 80px;
+  margin-block: var(--section-margin);
 `;
 const Title = styled.h2`
   font-size: var(--title-size);
   line-height: 1;
-  margin-bottom: 80px;
+  margin-bottom: var(--section-margin);
 `;
 
 const SolutionGrid = styled.div`
   display: grid;
   gap: 12px;
   grid-template-columns: repeat(2, 1fr);
+
+  ${mediaQueryMobile()} {
+    grid-template-columns: 1fr;
+  }
 `;
 const SolutionUI = styled.div`
   background: linear-gradient(to right bottom, #1e1e1e, #101010);
   padding: 40px 32px 24px 32px;
   display: flex;
   flex-direction: column;
+
+  ${mediaQuerySmallTablet()} {
+    padding: 20px 16px 8px 16px;
+  }
 `;
 const SolutionTitle = styled.h4`
   margin: 0;
   margin-bottom: 12px;
-  font-size: 2.8rem;
+  font-size: var(--small-title-size);
 `;
 const SolutionText = styled.p`
   margin: 0;
   margin-bottom: 28px;
 
-  font-size: 2.2rem;
-  line-height: 1.3 !important;
+  font-size: var(--regular-size);
+  line-height: var(--text-line-height);
   flex: 1;
 `;
 const SolutionURL = styled.a`
   color: white;
-  font-size: 1.8rem;
+  font-size: var(--small-size);
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.2s;

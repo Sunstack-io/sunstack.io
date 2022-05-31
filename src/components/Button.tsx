@@ -41,6 +41,6 @@ const ButtonView = styled.div`
 const ButtonText = styled.p`
   margin: 0;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: var(--regular-size);
   font-weight: 600;
 `;

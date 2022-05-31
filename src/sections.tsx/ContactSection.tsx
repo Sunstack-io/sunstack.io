@@ -52,7 +52,7 @@ export const ContactSection: React.FC<Props> = ({}) => {
 };
 
 const Main = styled.div`
-  margin-block: 80px;
+  margin-block: var(--section-margin);
 `;
 const TitleContainer = styled.div`
   margin-bottom: 40px;
@@ -85,5 +85,7 @@ const FormFooter = styled.div`
 `;
 const FormAgreement = styled.p`
   margin-top: 8px;
+  margin-right: 16px;
+  font-size: 1.6rem;
   max-width: 300px;
 `;
