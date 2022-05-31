@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useTranslation, useI18next } from "gatsby-plugin-react-i18next";
 
 import ReactIcon from "../images/react-icon-big.png";
+import Motherboard from "../images/motherboard.png";
 
 import { Container } from "../components/Container";
 import { LinkButton } from "../components/Button";
@@ -14,23 +15,65 @@ export const HeroSection: React.FC<Props> = ({}) => {
   const { t } = useTranslation();
 
   return (
-    <Container>
-      <Main>
-        <LeftSection>
-          <SmallTitle>{t("hero-smallTitle")}</SmallTitle>
-          <BigTitle>{t("hero-bigTitle")}</BigTitle>
-          <Text dangerouslySetInnerHTML={{ __html: t("hero-text") }} />
-          <CTAButton href="#contact">{t("hero-cta")}</CTAButton>
-        </LeftSection>
-        <RightSection>
-          <ReactIconImg src={ReactIcon} />
-        </RightSection>
-      </Main>
-    </Container>
+    <Main>
+      <Overlay />
+      <Content>
+        <Container>
+          <InnerMain>
+            <LeftSection>
+              <SmallTitle>{t("hero-smallTitle")}</SmallTitle>
+              <BigTitle>{t("hero-bigTitle")}</BigTitle>
+              <Text dangerouslySetInnerHTML={{ __html: t("hero-text") }} />
+              <CTAButton href="#contact">{t("hero-cta")}</CTAButton>
+            </LeftSection>
+            <RightSection>
+              <ReactIconImg src={ReactIcon} />
+            </RightSection>
+          </InnerMain>
+        </Container>
+      </Content>
+    </Main>
   );
 };
 
 const Main = styled.div`
+  position: relative;
+  height: 75vh;
+  min-height: 500px;
+
+  background-image: url(${Motherboard});
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  ${mediaQuerySmallTablet()} {
+    flex-direction: column;
+    align-items: initial;
+    justify-content: initial;
+
+    padding-block: 40px;
+  }
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+`;
+const Content = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  padding-top: 40px;
+`;
+
+const InnerMain = styled.div`
   height: 70vh;
   min-height: 500px;
 
@@ -39,19 +82,7 @@ const Main = styled.div`
 
   align-items: center;
   justify-content: space-between;
-
-  ${mediaQuerySmallTablet()} {
-    flex-direction: column;
-    align-items: initial;
-    justify-content: initial;
-
-    min-height: initial;
-    height: initial;
-
-    padding-block: 40px;
-  }
 `;
-
 const LeftSection = styled.div`
   max-width: 60%;
   ${mediaQuerySmallTablet()} {

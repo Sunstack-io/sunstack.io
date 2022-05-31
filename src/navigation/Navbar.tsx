@@ -2,7 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 import LogoFullTransparent from "../images/logo_full_transparent.png";
-import { mediaQueryTablet, avoidBlurryImages } from "../styles";
+import {
+  mediaQueryTablet,
+  avoidBlurryImages,
+  mediaQueryMobile,
+} from "../styles";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
 type Props = {};
@@ -25,6 +29,12 @@ export const Navbar: React.FC<Props> = () => {
 };
 
 const Main = styled.nav`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -80,7 +90,7 @@ const MenuContainer = styled.div`
     }
   }
 
-  ${mediaQueryTablet()} {
+  ${mediaQueryMobile()} {
     display: none;
   }
 `;

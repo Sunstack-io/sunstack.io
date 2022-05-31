@@ -32,9 +32,11 @@ export const ReferenceSection: React.FC<Props> = ({}) => {
 };
 
 const Main = styled.div`
-  background-color: #131313;
+  background-color: #0c0c0c;
   padding-block: var(--section-margin);
-  margin-block: var(--section-margin);
+  margin-bottom: var(--section-margin);
+
+  padding-bottom: calc(var(--section-margin) + 30px);
 `;
 const Title = styled.h2`
   text-transform: uppercase;
@@ -42,12 +44,12 @@ const Title = styled.h2`
   text-align: center;
 
   width: fit-content;
-  font-size: 3rem;
+  font-size: 4rem;
 `;
 const ImgContainer = styled.div`
   width: fit-content;
   margin-inline: auto;
-  margin-top: 40px;
+  margin-top: 60px;
 
   padding-inline: 80px;
 

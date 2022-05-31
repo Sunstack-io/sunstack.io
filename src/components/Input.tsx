@@ -52,7 +52,7 @@ const Label = styled.label`
   margin-bottom: 8px;
 `;
 const TextInput = styled.input`
-  background-color: #151515;
+  background-color: #1a1a1a;
   border: none;
   width: 100%;
 
