@@ -8,7 +8,7 @@ type Props = {
 
 export const Button: React.FC<Props> = ({ children, className }) => {
   return (
-    <ButtonView className={className}>
+    <ButtonView as="button" className={className}>
       <ButtonText>{children}</ButtonText>
     </ButtonView>
   );
@@ -24,6 +24,8 @@ export const LinkButton: React.FC<Props> = ({ children, className }) => {
 const ButtonView = styled.div`
   background-color: var(--main-color);
   color: white;
+  border: none;
+  cursor: pointer;
 
   display: inline-block;
   padding-inline: 32px;

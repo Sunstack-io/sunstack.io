@@ -7,6 +7,14 @@ import { useTranslation } from "gatsby-plugin-react-i18next";
 
 type Props = {};
 
+/*
+<form action="https://mailthis.to/you@mail.com" method="POST">
+    <input type="text" name="name" placeholder="Your name">
+    <input type="email" name="_replyto" placeholder="Your email">
+    <input type="submit" value="Send Email">
+</form>
+*/
+
 export const ContactSection: React.FC<Props> = ({}) => {
   const { t } = useTranslation();
 
@@ -18,12 +26,12 @@ export const ContactSection: React.FC<Props> = ({}) => {
             <Title>{t("contact-title")}</Title>
             <Subtitle>{t("contact-text")}</Subtitle>
           </TitleContainer>
-          <FormContainer>
+          <FormContainer method="POST" action="https://formbold.com/s/3Ggl3">
             <div>
               <OneLineTextInput
                 label={t("emailAddress")}
                 placeholder="johndoe@gmail.com"
-                name="emailAddress"
+                name="_replyTo"
               />
               <OneLineTextInput
                 label={t("name")}
@@ -33,7 +41,7 @@ export const ContactSection: React.FC<Props> = ({}) => {
               <MultiLineTextInput
                 label={t("message")}
                 placeholder="How can we help"
-                name="name"
+                name="message"
               />
             </div>
             <FormFooter>
@@ -42,7 +50,7 @@ export const ContactSection: React.FC<Props> = ({}) => {
                   __html: t("contact-privacyPolicy", { url: "#" }),
                 }}
               />
-              <LinkButton>{t("send")}</LinkButton>
+              <Button>{t("send")}</Button>
             </FormFooter>
           </FormContainer>
         </CenteredContainer>
