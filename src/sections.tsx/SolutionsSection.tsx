@@ -61,7 +61,7 @@ const SolutionGrid = styled.div`
   }
 `;
 const SolutionUI = styled.div`
-  background: linear-gradient(to right bottom, #1e1e1e, #101010);
+  background: linear-gradient(to right bottom, #1e1e1e, #151515);
   padding: 40px 32px 24px 32px;
   display: flex;
   flex-direction: column;

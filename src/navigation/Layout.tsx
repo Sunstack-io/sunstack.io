@@ -61,14 +61,6 @@ const Main = styled.main`
   --text-line-height: 1.3;
   --section-margin: 80px;
 
-  b {
-    font-weight: 600;
-    color: #ffffff;
-  }
-  a {
-    color: white;
-  }
-
   ${mediaQuery(breakPoints.tablet)} {
     --huge-title-size: 4.2rem;
     --subhuge-title-size: 3.8rem;

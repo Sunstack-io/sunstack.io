@@ -15,11 +15,8 @@ export const Navbar: React.FC<Props> = () => {
       <LogoImg src={LogoFullTransparent} />
       <MenuContainer>
         <ul>
-          <li>
-            <a href="#">{t("about")}</a>
-          </li>
           <li className="button">
-            <a href="#">{t("header-cta")}</a>
+            <a href="/#contact">{t("header-cta")}</a>
           </li>
         </ul>
       </MenuContainer>

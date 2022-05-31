@@ -7,19 +7,11 @@ import { useTranslation } from "gatsby-plugin-react-i18next";
 
 type Props = {};
 
-/*
-<form action="https://mailthis.to/you@mail.com" method="POST">
-    <input type="text" name="name" placeholder="Your name">
-    <input type="email" name="_replyto" placeholder="Your email">
-    <input type="submit" value="Send Email">
-</form>
-*/
-
 export const ContactSection: React.FC<Props> = ({}) => {
   const { t } = useTranslation();
 
   return (
-    <Main>
+    <Main id="contact">
       <Container>
         <CenteredContainer>
           <TitleContainer>

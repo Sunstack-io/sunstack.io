@@ -5,13 +5,8 @@ import { useTranslation, useI18next } from "gatsby-plugin-react-i18next";
 import ReactIcon from "../images/react-icon-big.png";
 
 import { Container } from "../components/Container";
-import { Button } from "../components/Button";
-import {
-  breakPoints,
-  mediaQuery,
-  mediaQueryTablet,
-  mediaQuerySmallTablet,
-} from "../styles";
+import { LinkButton } from "../components/Button";
+import { mediaQueryTablet, mediaQuerySmallTablet } from "../styles";
 
 type Props = {};
 
@@ -25,7 +20,7 @@ export const HeroSection: React.FC<Props> = ({}) => {
           <SmallTitle>{t("hero-smallTitle")}</SmallTitle>
           <BigTitle>{t("hero-bigTitle")}</BigTitle>
           <Text dangerouslySetInnerHTML={{ __html: t("hero-text") }} />
-          <CTAButton>{t("hero-cta")}</CTAButton>
+          <CTAButton href="#contact">{t("hero-cta")}</CTAButton>
         </LeftSection>
         <RightSection>
           <ReactIconImg src={ReactIcon} />
@@ -87,7 +82,7 @@ const Text = styled.p`
   line-height: 1.3;
 `;
 
-const CTAButton = styled(Button)`
+const CTAButton = styled(LinkButton)`
   margin-top: 0;
 `;
 const RightSection = styled.div`

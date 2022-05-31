@@ -16,28 +16,68 @@ export const Footer: React.FC<Props> = () => {
 
   return (
     <Main>
-      <LogoImg src={LogoFullTransparent} />
-      <MenuContainer>
-        <ul>
-          <li>
-            <a href="#">{t("about")}</a>
-          </li>
-        </ul>
-      </MenuContainer>
+      <MainContainer>
+        <LogoImg src={LogoFullTransparent} />
+        <MenuGrid>
+          <Menu title={"Expertise"}>
+            <MenuLink href="/#contact">React Native app development</MenuLink>
+            <MenuLink href="/#contact">React development</MenuLink>
+            <MenuLink href="/#contact">NodeJS development</MenuLink>
+            <MenuLink href="/#contact">AWS Consulting</MenuLink>
+            <MenuLink href="/#contact">NextJS development</MenuLink>
+            <MenuLink href="/#contact">Mobile App development</MenuLink>
+          </Menu>
+          <Menu title={"Services"}>
+            <MenuLink href="/#contact">App Development</MenuLink>
+            <MenuLink href="/#contact">Mobile App Development</MenuLink>
+            <MenuLink href="/#contact">React Native Training</MenuLink>
+            <MenuLink href="/#contact">UX/UI Design</MenuLink>
+            <MenuLink href="/#contact">Dedicated Development Team</MenuLink>
+            <MenuLink href="/#contact">Software Engineering Audit</MenuLink>
+          </Menu>
+          <Menu title={"Find Us"}>
+            <MenuLink href="https://www.linkedin.com/company/sunstack">
+              LinkedIn
+            </MenuLink>
+            <MenuLink href="https://medium.com/sunstack">Medium</MenuLink>
+            <MenuLink href="https://twitter.com/sunstackapps">Twitter</MenuLink>
+            <MenuLink href="https://www.linkedin.com/company/sunstack">
+              Company
+            </MenuLink>
+            <MenuLink href="/#contact">Contact Us</MenuLink>
+            <MenuLink href="https://github.com/Sunstack-io">
+              Open Source
+            </MenuLink>
+          </Menu>
+        </MenuGrid>
+        <Copyright>
+          © 2022 Sunstack -{" "}
+          <a href="mailto:hello@sunstack.io">hello@sunstack.io</a>
+        </Copyright>
+      </MainContainer>
     </Main>
   );
 };
 
+export const Menu: React.FC<{
+  title: string;
+}> = ({ title, children }) => {
+  return (
+    <MenuColumn>
+      <MenuTitle>{title}</MenuTitle>
+      <MenuColumnBody>{children}</MenuColumnBody>
+    </MenuColumn>
+  );
+};
 const Main = styled.footer`
   border-top: 1px solid #333;
+  padding-block: 40px;
+`;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
-  padding-block: 16px;
-  padding-inline: 30px;
+const MainContainer = styled.div`
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
 `;
 const LogoImg = styled.img`
   ${avoidBlurryImages()}
@@ -47,30 +87,50 @@ const LogoImg = styled.img`
     height: 26px;
   }
 `;
-const MenuContainer = styled.div`
-  ul {
-    list-style-type: none;
-    display: flex;
-  }
-  li {
-    display: block;
-    &:not(:last-child) {
-      margin-right: 8px;
-    }
-  }
-  a {
-    color: white;
-    text-decoration: none;
-    font-weight: 400;
 
-    display: flex;
-    align-items: center;
+const MenuGrid = styled.div`
+  display: grid;
+  margin-block: 40px;
+  row-gap: 40px;
 
-    padding-inline: 20px;
-    font-size: var(--regular-size);
+  grid-template-columns: repeat(2, 1fr);
+  ${mediaQueryTablet()} {
+    grid-template-columns: 1fr;
   }
+`;
+
+const MenuColumn = styled.div``;
+const MenuTitle = styled.h6`
+  margin: 0;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  margin-bottom: 12px;
+`;
+const MenuColumnBody = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 8px;
 
   ${mediaQueryMobile()} {
-    display: none;
+    grid-template-columns: 1fr;
   }
+`;
+const MenuLink = styled.a`
+  display: block;
+  font-size: 1.8rem;
+
+  color: #bbb;
+  text-decoration: none;
+
+  transition: color 0.2s;
+  &:hover {
+    color: white;
+  }
+`;
+
+const Copyright = styled.p`
+  margin: 0;
+  margin-bottom: -20px;
 `;

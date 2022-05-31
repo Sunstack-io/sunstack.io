@@ -5,3 +5,10 @@ body {
   font-size: 1.6rem;
   background-color: #101010;
 }
+b {
+  font-weight: 600;
+  color: #ffffff;
+}
+a {
+  color: white;
+}

@@ -13,9 +13,13 @@ export const Button: React.FC<Props> = ({ children, className }) => {
     </ButtonView>
   );
 };
-export const LinkButton: React.FC<Props> = ({ children, className }) => {
+export const LinkButton: React.FC<Props & { href?: string }> = ({
+  children,
+  className,
+  href,
+}) => {
   return (
-    <ButtonView as="a" href="#" className={className}>
+    <ButtonView as="a" href={href} className={className}>
       <ButtonText>{children}</ButtonText>
     </ButtonView>
   );
