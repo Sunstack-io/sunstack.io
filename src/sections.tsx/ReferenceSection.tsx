@@ -32,10 +32,10 @@ export const ReferenceSection: React.FC<Props> = ({}) => {
 };
 
 const Main = styled.div`
-  background-color: #0c0c0c;
-  padding-block: var(--section-margin);
+  background: linear-gradient(to bottom, #0a0a0a, #101010);
   margin-bottom: var(--section-margin);
 
+  padding-top: calc(var(--section-margin) + 30px);
   padding-bottom: calc(var(--section-margin) + 30px);
 `;
 const Title = styled.h2`

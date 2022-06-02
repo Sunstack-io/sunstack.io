@@ -83,6 +83,8 @@ const MenuContainer = styled.div`
   .button a {
     border: 1px solid white;
     border-radius: 3px;
+    text-align: center;
+
     &:hover {
       background-color: var(--main-color);
       border-color: var(--main-color);

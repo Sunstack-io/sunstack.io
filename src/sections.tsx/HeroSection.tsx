@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useTranslation, useI18next } from "gatsby-plugin-react-i18next";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import ReactIcon from "../images/react-icon-big.png";
 import Motherboard from "../images/motherboard.png";
@@ -21,7 +21,6 @@ export const HeroSection: React.FC<Props> = ({}) => {
         <Container>
           <InnerMain>
             <LeftSection>
-              <SmallTitle>{t("hero-smallTitle")}</SmallTitle>
               <BigTitle>{t("hero-bigTitle")}</BigTitle>
               <Text dangerouslySetInnerHTML={{ __html: t("hero-text") }} />
               <CTAButton href="#contact">{t("hero-cta")}</CTAButton>
@@ -38,7 +37,7 @@ export const HeroSection: React.FC<Props> = ({}) => {
 
 const Main = styled.div`
   position: relative;
-  height: 75vh;
+  height: 85vh;
   min-height: 500px;
 
   background-image: url(${Motherboard});
@@ -74,7 +73,7 @@ const Content = styled.div`
 `;
 
 const InnerMain = styled.div`
-  height: 70vh;
+  height: 85vh;
   min-height: 500px;
 
   display: flex;
@@ -89,16 +88,9 @@ const LeftSection = styled.div`
     max-width: initial;
   }
 `;
-const SmallTitle = styled.h1`
-  font-size: var(--subhuge-title-size);
-  font-weight: 400;
-  line-height: 1;
-  margin-bottom: 8px;
-`;
-
 const BigTitle = styled.h1`
   font-size: var(--huge-title-size);
-  line-height: 0.9;
+  line-height: 1;
 
   display: block;
   margin-top: -8px;

@@ -4,7 +4,7 @@ import { breakPoints, mediaQuery } from "../styles";
 
 export const Container = styled.div`
   width: 90%;
-  max-width: 1060px;
+  max-width: 1120px;
   margin-inline: auto;
 
   ${mediaQuery(breakPoints.tablet)} {
