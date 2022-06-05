@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "gatsby-plugin-react-i18next";
+import { useInView } from "react-intersection-observer";
 
 import CaptainFisherIcon from "../images/captainfisher-icon.png";
 import WanderersIcon from "../images/wanderers-icon.png";
@@ -8,15 +10,15 @@ import BelibIcon from "../images/belib-icon.png";
 
 import { Container } from "../components/Container";
 import { mediaQueryMobile, mediaQuerySmallTablet } from "../styles";
-import { useTranslation } from "gatsby-plugin-react-i18next";
 
 type Props = {};
 
 export const ReferenceSection: React.FC<Props> = ({}) => {
   const { t } = useTranslation();
+  const [ref, inView] = useInView();
 
   return (
-    <Main>
+    <Main ref={ref}>
       <Container>
         <Title>{t("ref-title")}</Title>
       </Container>

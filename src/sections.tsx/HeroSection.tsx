@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
+import { motion, useAnimation, Variants } from "framer-motion";
 
 import ReactIcon from "../images/react-icon-big.png";
 import Motherboard from "../images/motherboard.png";
@@ -11,8 +12,40 @@ import { mediaQueryTablet, mediaQuerySmallTablet } from "../styles";
 
 type Props = {};
 
+const sectionVariant: Variants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+    },
+  },
+  hidden: { opacity: 0, y: 10 },
+};
+const logoVariant: Variants = {
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.7,
+    },
+  },
+  hidden: { opacity: 0, scale: 0.95 },
+};
+
 export const HeroSection: React.FC<Props> = ({}) => {
+  const animation = useAnimation();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      animation.start("visible");
+    }, 100);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
 
   return (
     <Main>
@@ -20,12 +53,20 @@ export const HeroSection: React.FC<Props> = ({}) => {
       <Content>
         <Container>
           <InnerMain>
-            <LeftSection>
+            <LeftSection
+              variants={sectionVariant}
+              initial={"hidden"}
+              animate={animation}
+            >
               <BigTitle>{t("hero-bigTitle")}</BigTitle>
               <Text dangerouslySetInnerHTML={{ __html: t("hero-text") }} />
               <CTAButton href="#contact">{t("hero-cta")}</CTAButton>
             </LeftSection>
-            <RightSection>
+            <RightSection
+              variants={logoVariant}
+              initial={"hidden"}
+              animate={animation}
+            >
               <ReactIconImg src={ReactIcon} />
             </RightSection>
           </InnerMain>
@@ -82,7 +123,7 @@ const InnerMain = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-const LeftSection = styled.div`
+const LeftSection = styled(motion.div)`
   max-width: 60%;
   ${mediaQuerySmallTablet()} {
     max-width: initial;
@@ -108,7 +149,7 @@ const Text = styled.p`
 const CTAButton = styled(LinkButton)`
   margin-top: 0;
 `;
-const RightSection = styled.div`
+const RightSection = styled(motion.div)`
   ${mediaQuerySmallTablet()} {
     display: none;
   }

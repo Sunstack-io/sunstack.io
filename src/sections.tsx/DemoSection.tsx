@@ -1,25 +1,68 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "gatsby-plugin-react-i18next";
+import { motion, useAnimation, Variants } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 import PhoneImg from "../images/phone-2.png";
 
 import { Container } from "../components/Container";
 import { mediaQuerySmallTablet, mediaQueryTablet } from "../styles";
-import { useTranslation } from "gatsby-plugin-react-i18next";
-
-type Props = {};
 
 const elements = [null, null, null];
 
-export const DemoSection: React.FC<Props> = ({}) => {
+const rightVariants: Variants = {
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    x: 50,
+  },
+};
+
+const leftVariants: Variants = {
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    x: -50,
+  },
+};
+
+export const DemoSection: React.FC = ({}) => {
   const { t } = useTranslation();
+  const [ref, inView] = useInView();
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      setTimeout(() => {
+        animation.start("visible");
+      }, 500);
+    }
+  }, [inView]);
 
   return (
-    <Main>
+    <Main ref={ref}>
       <Container>
         <Title>{t("demo-title")}</Title>
         <Rows>
-          <Column>
+          <Column
+            variants={leftVariants}
+            initial={"hidden"}
+            animate={animation}
+          >
             {elements.map((_, i) => (
               <Block>
                 <BlockTitle>{t("demo-" + (i + 1) + "-title")}</BlockTitle>
@@ -30,7 +73,12 @@ export const DemoSection: React.FC<Props> = ({}) => {
           <Column>
             <PhoneImgContainer src={PhoneImg} />
           </Column>
-          <Column isRight={true}>
+          <Column
+            isRight={true}
+            variants={rightVariants}
+            initial={"hidden"}
+            animate={animation}
+          >
             {elements.map((_, i) => (
               <Block>
                 <BlockTitle>{t("demo-" + (i + 4) + "-title")}</BlockTitle>
@@ -63,7 +111,7 @@ const Rows = styled.div`
   }
 `;
 
-const Column = styled.div<{ isRight?: boolean }>`
+const Column = styled(motion.div)<{ isRight?: boolean }>`
   flex: 1;
 
   &:nth-child(2) {

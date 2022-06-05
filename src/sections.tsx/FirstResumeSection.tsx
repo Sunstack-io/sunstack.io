@@ -1,21 +1,60 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useTranslation } from "gatsby-plugin-react-i18next";
+import { Variants, useAnimation, motion } from "framer-motion";
 
 import PhoneCase from "../images/phone-1.png";
 import { Container } from "../components/Container";
 import { mediaQueryTablet, mediaQuerySmallTablet } from "../styles";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import { useInView } from "react-intersection-observer";
 
-type Props = {};
+const imageVariants: Variants = {
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    x: 50,
+  },
+};
 
-export const FirstResumeSection: React.FC<Props> = ({}) => {
+const textsVariants: Variants = {
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    x: -50,
+  },
+};
+
+export const FirstResumeSection: React.FC = ({}) => {
   const { t } = useTranslation();
+  const [ref, inView] = useInView();
+  const animation = useAnimation();
 
+  useEffect(() => {
+    if (inView) {
+      animation.start("visible");
+    }
+  }, [inView]);
   return (
-    <Main>
+    <Main ref={ref}>
       <Container>
         <Rows>
-          <LeftSection>
+          <LeftSection
+            initial={"hidden"}
+            variants={textsVariants}
+            animate={animation}
+          >
             <Title dangerouslySetInnerHTML={{ __html: t("fres-title") }} />
             <Text
               dangerouslySetInnerHTML={{
@@ -25,7 +64,11 @@ export const FirstResumeSection: React.FC<Props> = ({}) => {
               }}
             />
           </LeftSection>
-          <RightSection>
+          <RightSection
+            initial={"hidden"}
+            variants={imageVariants}
+            animate={animation}
+          >
             <PhoneImg src={PhoneCase} />
           </RightSection>
         </Rows>
@@ -47,7 +90,7 @@ const Rows = styled.div`
     justify-content: initial;
   }
 `;
-const LeftSection = styled.div`
+const LeftSection = styled(motion.div)`
   max-width: 58%;
   ${mediaQueryTablet()} {
     max-width: 66%;
@@ -56,7 +99,7 @@ const LeftSection = styled.div`
     max-width: initial;
   }
 `;
-const RightSection = styled.div`
+const RightSection = styled(motion.div)`
   ${mediaQuerySmallTablet()} {
     margin-top: var(--section-margin);
   }
