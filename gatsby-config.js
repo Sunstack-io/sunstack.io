@@ -6,9 +6,13 @@ const config = {
   plugins: [
     "gatsby-plugin-styled-components",
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: "G-RV7TTTM173",
+        trackingIds: ["G-RV7TTTM173"],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
       },
     },
     "gatsby-plugin-image",
