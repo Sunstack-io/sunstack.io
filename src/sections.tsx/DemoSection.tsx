@@ -5,7 +5,7 @@ import { motion, useAnimation, Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
-import PhoneImg from "../images/phone-2.png";
+import PhoneImg from "../images/phone-2.webp";
 
 import { Container } from "../components/Container";
 import { mediaQuerySmallTablet, mediaQueryTablet } from "../styles";

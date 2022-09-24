@@ -4,7 +4,7 @@ import { useTranslation } from "gatsby-plugin-react-i18next";
 import { motion, useAnimation, Variants } from "framer-motion";
 
 import ReactIcon from "../images/react-icon-big.png";
-import Motherboard from "../images/motherboard.png";
+import Motherboard from "../images/motherboard.webp";
 
 import { Container } from "../components/Container";
 import { LinkButton } from "../components/Button";

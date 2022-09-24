@@ -20,7 +20,7 @@ export const Footer: React.FC<Props> = () => {
         <LogoImg src={LogoFullTransparent} />
         <MenuGrid>
           <Menu title={"Expertise"}>
-            <MenuLink href="/#contact">React Native app development</MenuLink>
+            <MenuLink href="/#contact">React Native development</MenuLink>
             <MenuLink href="/#contact">React development</MenuLink>
             <MenuLink href="/#contact">NodeJS development</MenuLink>
             <MenuLink href="/#contact">AWS Consulting</MenuLink>
@@ -30,7 +30,7 @@ export const Footer: React.FC<Props> = () => {
           <Menu title={"Services"}>
             <MenuLink href="/#contact">App Development</MenuLink>
             <MenuLink href="/#contact">Mobile App Development</MenuLink>
-            <MenuLink href="/#contact">React Native Training</MenuLink>
+            <MenuLink href="/#contact">React Training</MenuLink>
             <MenuLink href="/#contact">UX/UI Design</MenuLink>
             <MenuLink href="/#contact">Dedicated Development Team</MenuLink>
             <MenuLink href="/#contact">Software Engineering Audit</MenuLink>

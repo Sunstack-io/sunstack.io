@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import { Variants, useAnimation, motion } from "framer-motion";
 
-import PhoneCase from "../images/phone-1.png";
+import PhoneCase from "../images/phone-1.webp";
 import { Container } from "../components/Container";
 import { mediaQueryTablet, mediaQuerySmallTablet } from "../styles";
 import { useInView } from "react-intersection-observer";
